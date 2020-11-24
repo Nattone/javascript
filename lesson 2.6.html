@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+// Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), 
+//где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+//В зависимости от переданного значения операции выполнить одну из арифметических операций 
+//(использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+
+var a = +prompt("Введите число a");
+var b = +prompt("Введите число b");
+var operation = prompt("Введите название операции (сумма, разность, произведение, частное)");
+
+function sum (a, b) {
+  return (a + b);
+}
+function difference (a, b) {
+  return (a - b);
+}
+function product (a, b) { //произведение
+  return (a * b);
+}
+function quotient (a, b) { //частное
+  return (a / b);
+}
+
+function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+        case "сумма":
+            return sum(arg1, arg2);
+        case "разность":
+            return difference(arg1, arg2);
+        case "произведение":
+            return product(arg1, arg2);
+        case "частное":
+            return quotient(arg1, arg2);
+        default:
+            console.log("Неверное название операции");
+    }
+}
+
+console.log(mathOperation(a, b, operation));
+
+</script>

@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+  
+  var object = {};
+  var n = +prompt("Введите число от 0 до 999");
+
+  while (n < 0 || n > 999 || isNaN(n)) { 
+    alert("Вы ввели недопустимое значение. Попробуйте ещё раз");
+    n = +prompt("Введите число от 0 до 999");
+  } 
+
+  object.hundreds = parseInt(n / 100);
+  object.tens = parseInt((n % 100) / 10);
+  object.units = parseInt((n % 100) % 10); 
+
+  console.log(object);
+
+</script>

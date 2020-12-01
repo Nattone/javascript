@@ -8,7 +8,7 @@ var answers = [];
 do {//Выводим первый вопрос
     ok = false;
     event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры');
-    // console.log (event);
+    // answers.push(works.a00);
    
     if (event == -1) {
         break;
@@ -19,6 +19,7 @@ do {//Выводим первый вопрос
 } while (!ok);
 switch (event) {
     case 1: // Первое действие  - если в первом окне ввели 1 то открываем серию окон - окно 2
+        answers.push(works.a1);
         do {
             ok = false;
             event = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры');
@@ -27,10 +28,13 @@ switch (event) {
             }
             else {
                 ok = isAnswer(works.b0, event);
+                // answers.push(works.b00);
             }
         } while (!ok);
         switch (event) {
             case 1: // Второе действие, если во 2 окне ввели 1 то переходим на 4 окно
+                answers.push(works.b1);
+
                 do {
                     ok = false;
                     event = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
@@ -39,11 +43,13 @@ switch (event) {
                     }
                     else {
                         ok = isAnswer(works.d0, event);
+                        answers.push(works.d00);
                     }
                 } while (!ok);
 
                 break;
             case 2: // Второе действие   Если ввели 2 то также переходим на 4 окно
+                answers.push(works.b2);
                 do {
                     ok = false;
                     event = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
@@ -52,6 +58,7 @@ switch (event) {
                     }
                     else {
                         ok = isAnswer(works.d0, event);
+                        answers.push(works.d00);
                     }
                 } while (!ok);
 
@@ -63,6 +70,7 @@ switch (event) {
         }
         break;
     case 2: // Первое действие    Если в 1 окне ввели 2 то переходим к 3 окну
+        answers.push(works.a2);
         do {
             ok = false;
             event = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры');
@@ -71,10 +79,12 @@ switch (event) {
             }
             else {
                 ok = isAnswer(works.c0, event);
+                // answers.push(works.c00);
             }
         } while (!ok);
         switch (event) {
             case 1: // Второе действие
+                answers.push(works.c1);
                 do {
                     ok = false;
                     event = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
@@ -83,11 +93,13 @@ switch (event) {
                     }
                     else {
                         ok = isAnswer(works.d0, event);
+                        answers.push(works.d00);
                     }
                 } while (!ok);
 
                 break;
             case 2: // Второе действие
+                answers.push(works.c2);
                 do {
                     ok = false;
                     event = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
@@ -126,3 +138,17 @@ function isAnswer(q, event) {
 	return true;
     
 }
+
+console.log(answers);
+
+
+// var questionNumber = +prompt("Какой вопрос вас интересует? Введите его номер.")
+
+// while (questionNumber < 0 || questionNumber > 3 || isNaN(questionNumber)) { 
+//     alert("Вы ввели недопустимое значение, или такого вопроса нет. Попробуйте ещё раз");
+//     questionNumber = +prompt("Какой вопрос вас интересует? Введите его номер.");
+// } 
+
+// questionNumber = works.a00;
+// var questionAnswer = works.a1
+// alert("Вы задали вопрос: " + questionNumber + "\n Ваш ответ был: " + questionAnswer);

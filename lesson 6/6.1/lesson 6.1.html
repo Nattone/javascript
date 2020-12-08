@@ -8,12 +8,42 @@
   </head>
   <body>
     <div class="gallery">
-      <img class="gallery__img" src="small/fox.jpg">
-      <img class="gallery__img" src="small/wolf.jpg">
-      <img class="gallery__img" src="small/rabbit.jpg">
+      <div class="small">
+        <img class="img" src="small/fox.jpg">
+        <img class="img" src="small/wolf.jpg">
+        <img class="img" src="small/rabbit.jpg">
+      </div>
+      <div class="big">
+      </div>
+
+      
     </div>
 
     <script type="text/javascript">
-      
+
+    var images = document.querySelectorAll(".img");
+    var galleryBig = document.querySelector(".big");
+    
+    for (var image of images) {
+      image.onclick = onClickHandler;
+    }
+    
+    function onClickHandler() {
+      var str = this.getAttribute("src");
+      var newstr = str.replace("small/", "big/");
+
+      var imgBig = document.createElement("img");
+      imgBig.className = "img";
+      imgBig.onload = function() {
+        galleryBig.innerHTML = "";
+        galleryBig.appendChild(this);
+      }
+      imgBig.onerror = function() {
+        galleryBig.innerHTML = "Файл не найден";
+      }
+      imgBig.src = newstr;
+    }
+
+       
     </script>
   </body>

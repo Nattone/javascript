@@ -1,12 +1,28 @@
-.gallery {
+.gallery .small {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.gallery__img {
+.gallery .small .img {
   width: 300px;
   height: 200px;
   object-fit: cover;
   margin-bottom: 20px;
+  transition: transform .3s ease;
+}
+.gallery .small .img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.gallery .big {
+  max-width: 800px;
+  padding: 40px 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 24px;
+}
+.gallery .big .img {
+  max-width: 100%;
 }

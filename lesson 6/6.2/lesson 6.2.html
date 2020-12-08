@@ -1,0 +1,133 @@
+<!-- Реализовать модуль корзины. 
+  Создать блок товаров и блок корзины. 
+  У каждого товара есть кнопка «Купить», 
+  при нажатии на которую происходит добавление 
+  имени и цены товара в блок корзины. 
+  Корзина должна уметь считать общую сумму заказа. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Каталог</title>
+  </head>
+  <body>
+    <h1>Каталог</h1>
+    <div class="catalog">
+      <div class="product">
+        <img class="img" src="img/product1.jpg">
+        <p class="name">Шар золотой</p>
+        <p class="price"><span class="cost">60</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product2.jpg">
+        <p class="name">Ёлочная игрушка Скутер</p>
+        <p class="price"><span class="cost">226</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product3.jpg">
+        <p class="name">Набор ёлочных украшений</p>
+        <p class="price"><span class="cost">330</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product4.jpg">
+        <p class="name">Набор ёлочных украшений красный</p>
+        <p class="price"><span class="cost">290</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product5.jpg">
+        <p class="name">Ёлочная игрушка Лиса</p>
+        <p class="price"><span class="cost">450</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product6.jpg">
+        <p class="name">Набор украшений Рождественский сюрприз</p>
+        <p class="price"><span class="cost">447</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product7.jpg">
+        <p class="name">Ёлочная игрушка Паровозик</p>
+        <p class="price"><span class="cost">310</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product8.jpg">
+        <p class="name">Ёлочная игрушка Автомобиль</p>
+        <p class="price"><span class="cost">226</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product">
+        <img class="img" src="img/product9.jpg">
+        <p class="name">Ёлочная игрушка Ангел</p>
+        <p class="price"><span class="cost">203</span> руб</p>
+        <button class="btn">В корзину</button>
+      </div>
+    </div>
+    <div class="cart">
+      <h2>Корзина</h2>
+      <div class="cart__box">
+        
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      var cart = [];
+      var cartBox = document.querySelector(".cart__box");
+      var total = document.createElement("div");
+      total.className = "total";
+
+      var buttons = document.querySelectorAll(".btn");
+      
+      for (var button of buttons) {
+        button.addEventListener("click", onClickHandler);
+      }
+
+      function onClickHandler(event) {
+        var parent = event.target.parentElement;
+        var product = {
+          name: parent.querySelector(".name").innerHTML,
+          cost: parent.querySelector(".cost").innerHTML
+        };
+        cart.push(product);
+        console.log(cart);
+        console.log("Сумма:", countCartPrice());
+
+        var buy = document.createElement("div");
+        buy.className = "buy";
+        buy.innerHTML = product.name + ": " + product.cost + "руб";
+
+        cartBox.appendChild(buy);
+
+        
+        total.innerHTML = "Сумма: " + countCartPrice() + "руб";
+
+        cartBox.appendChild(total);
+      }
+
+      function countCartPrice () {
+        var sum = 0;
+        for (var item of cart) {
+          sum = parseInt(sum) + parseInt(item.cost);
+        }
+        return sum;
+      }
+
+
+
+
+
+
+
+
+      
+    </script>
+  </body>

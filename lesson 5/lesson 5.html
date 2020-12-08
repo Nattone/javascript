@@ -21,14 +21,14 @@
         var line = document.createElement("div");
         cells.push([]);
 
-        board.appendChild(line);
+        board.append(line);
         line.className = "line";
 
         for (var j = 0; j < 10; j++) {
           var block = document.createElement("div");
           cells[i].push(block);
 
-          line.appendChild(block);
+          line.append(block);
           block.className = "block";
 
           if (!(j == 0 || j == 9 || i == 0 || i == 9) && (
@@ -53,27 +53,27 @@
 
       for (var j = 1; j < 9; j++) {
         var figure = document.createElement("div");
-        cells[1][j].appendChild(figure);
+        cells[1][j].append(figure);
         figure.className = "figure color-bl";
         figure.innerText = figures[j-1];
 
         figure = document.createElement("div");
-        cells[2][j].appendChild(figure);
+        cells[2][j].append(figure);
         figure.className = "figure color-bl";
         figure.innerText = "П";
   
         figure = document.createElement("div");
-        cells[8][j].appendChild(figure);
+        cells[8][j].append(figure);
         figure.className = "figure color-wh";
         figure.innerText = figures[j-1];
      
         figure = document.createElement("div");
-        cells[7][j].appendChild(figure);
+        cells[7][j].append(figure);
         figure.className = "figure color-wh";
         figure.innerText = "П";
       }
 
-      // cells[1][1].innerHTML = "&#9814;";
+      // cells[1][1].innerHTML = "&#9814;"; ладья
       // cells[1][2].innerHTML = "&#9816;";
       // cells[1][3].innerHTML = "&#9815;";
       // cells[1][4].innerHTML = "&#9813;";

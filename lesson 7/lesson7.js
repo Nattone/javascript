@@ -68,9 +68,8 @@ function startGame() {
     respawn();//создали змейку
 
     snake_timer = setInterval(move, SNAKE_SPEED);//каждые 200мс запускаем функцию move
-    setTimeout(createFood, 5000);
-    setTimeout(createBomb, 8000);
-
+    setTimeout(createFood, 1000);
+    setTimeout(createBomb, 3000);
 }
 
 /**

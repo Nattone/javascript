@@ -1,0 +1,50 @@
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+  box-sizing: border-box;
+}
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+h1, h2 {
+  color: #af8264;
+  text-align: center;
+}
+.product {
+  width: 30%;
+  margin-bottom: 30px;
+  border: 1px solid #af8264;
+  padding: 20px 20px 75px;
+  box-sizing: border-box;
+  position: relative;
+}
+.product .img {
+  max-height: 250px;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.product .cost {
+  font-weight: bold;
+}
+.product .btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  border: none;
+  background-color: #d4bdaf;
+  color: #fff;
+  padding: 10px;
+  transition: background-color .3s ease;
+}
+.product .btn:hover {
+  cursor: pointer;
+  background-color: #af8264;
+}
+
